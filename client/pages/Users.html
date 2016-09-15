@@ -1,0 +1,30 @@
+<template name="Users">
+   {{#if isInRole 'admin'}}
+        <h1 class="page-title">Users</h1>
+        
+        <table border="collapse">
+            
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Created At</th>
+                <th>Admin</th>
+            </tr>
+            {{#each users}}
+                <tr>
+                    <td>{{_id}}</td>
+                    <td>{{userEmail}}</td>
+                    <td>{{profile.firstName}}</td>
+                    <td>{{createdAt}}</td>
+                    <td>{{isAdmin}}</td>
+                </tr>
+            {{/each}}
+        </table>
+        
+        
+        
+    {{else}}
+        <h1 class="page-title">Not Authorized</h1>
+    {{/if}}
+</template>
